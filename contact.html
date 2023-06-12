@@ -29,7 +29,7 @@
                         <a class="nav-link" href="./contact.html">About</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Admin</a>
+                        <a class="nav-link" href="./admin.html">Admin</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Product-list</a>
@@ -50,11 +50,19 @@
     <img src="./images/DanvilleMusicStore_DisplayRoom7979_Retouched.webp" class="w-25 img-fluid" id="img">
 <h1>About Us</h1>
     <p class="blockquote">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum magni voluptatum facilis quasi est, quisquam consequatur eveniet possimus sunt enim quae. Quae aut cumque id omnis similique. Commodi, nemo. Soluta!
-        Nulla ratione eaque minima expedita. Magni suscipit doloribus itaque unde tempora minus iure. Praesentium molestiae sed, qui ea natus voluptates sit ipsa quaerat recusandae! Nemo veritatis labore quia iusto quasi?
-        Assumenda neque veritatis praesentium vel repudiandae laboriosam dolore non autem fuga. Doloribus libero minima saepe rem in. A, odit cum eum consectetur autem suscipit, saepe voluptates animi iste dignissimos ratione?
-        Fuga animi repellendus esse recusandae consequuntur perferendis, cumque alias autem facilis similique delectus hic, impedit mollitia pariatur. Omnis illo eaque est tempore similique cumque deleniti dolor! At ullam libero cumque?
-        In temporibus inventore aliquam odio vero laudantium, dolor eligendi labore consectetur, esse, quis assumenda laborum magnam ut magni possimus quo! Voluptatum omnis maiores sunt aut quibusdam, at iure quod fuga!
+      Welcome to our Guitar Boutique!
+      Discover the world of harmonious melodies and electrifying riffs with our exquisite collection of guitars. Our e-commerce store is dedicated to all guitar enthusiasts, from beginners to seasoned professionals, providing you with the perfect instrument to unleash your musical passion.
+      Quality Craftsmanship:
+      Each guitar in our boutique has been carefully selected from renowned manufacturers who uphold the highest standards of craftsmanship. From classic acoustic guitars to cutting-edge electric models, we offer a diverse range to cater to every player's unique style and preferences. Our commitment to quality ensures that every instrument in our collection delivers exceptional sound, durability, and playability.
+      Unparalleled Variety:
+      We understand that musicians have distinct tastes, and that's why we offer an extensive range of guitars. Whether you're a fan of timeless vintage designs, sleek modern aesthetics, or bold and experimental finishes, we have something to suit every taste. Explore our curated selection of acoustic, electric, bass, and specialty guitars, and discover the instrument that resonates with your musical soul.
+      Expert Guidance:
+      Choosing the right guitar can be an overwhelming process, especially with so many options available. That's why our team of experienced guitar enthusiasts and experts is here to assist you at every step. Whether you need advice on selecting your first guitar or seeking an upgrade to enhance your sound, we're dedicated to providing personalized recommendations and ensuring that you find the perfect match.
+      Unleash Your Potential:
+      We believe that a great guitar has the power to inspire and transform. Whether you dream of strumming gentle melodies or shredding through captivating solos, our boutique empowers you to unleash your full potential. Let the harmonious tones and versatile capabilities of our guitars elevate your musical journey to new heights, helping you create captivating melodies that resonate with your audience.
+      Customer Satisfaction:
+      At our Guitar Boutique, your satisfaction is our top priority. We strive to provide an exceptional online shopping experience, backed by secure transactions, prompt shipping, and reliable customer support. We're here to answer any questions you may have, offer technical guidance, and address any concerns, ensuring that your journey with us is seamless and enjoyable.
+      Start your musical odyssey today and explore our extraordinary collection of guitars. Discover the instrument that resonates with your soul and unlocks the power of your musical talent. Welcome to our Guitar Boutique, where your musical dreams become a reality!
     </p>
 </div>
 
@@ -65,24 +73,36 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Contact us</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="https://formspree.io/f/xnqyearg" method="POST">
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <label for="name" class="col-form-label">Name</label>
             <input type="text" class="form-control" id="recipient-name">
           </div>
           <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Surname</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="number" class="col-form-label">Contact</label>
+            <input type="number" name="number" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="col-form-label">Email</label>
+            <input type="text" name="email" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
             <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <textarea class="form-control" name="messaege" id="message-text"></textarea>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="submit" class="btn btn-primary">Send message</button>
       </div>
     </div>
   </div>

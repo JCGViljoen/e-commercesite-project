@@ -1,6 +1,9 @@
 html{
     scroll-behavior: smooth;
 }
+#featured-container{
+    border-bottom: #000 solid;
+}
 #logo{
     width: 5rem;
     height: 5rem;
@@ -8,8 +11,7 @@ html{
 }
 
 #navbar{
-    background-color: grey;
-   
+   position:sticky
 }
 
 
@@ -31,8 +33,9 @@ html{
 .cards{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 5rem;
+    
 }
 
 
@@ -40,7 +43,9 @@ html{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: gray;
+    height:5rem;
+    border-top: #000 solid;
+    background-color: black;
 }
 
 .location a{
