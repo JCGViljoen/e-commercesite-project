@@ -1,0 +1,49 @@
+html{
+    scroll-behavior: smooth;
+}
+#logo{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 10px;
+}
+
+#navbar{
+    background-color: grey;
+   
+}
+
+
+
+.img-fluid{
+    margin-top: 5rem;
+}
+
+#featured-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.featured{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.cards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: gray;
+}
+
+.location a{
+    text-decoration: none;
+    text-decoration-color: black;
+}

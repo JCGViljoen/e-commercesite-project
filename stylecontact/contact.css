@@ -1,0 +1,21 @@
+#logo{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 10px;
+}
+
+#navbar{
+    background-color: grey;
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+#img{
+    padding-right: 5rem;
+}
+
