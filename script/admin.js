@@ -35,12 +35,14 @@ function insertNewRecord(data) {
   cell5.innerHTML = data.image; // Use the 'image' field value
   let cell6 = newRow.insertCell(5);
   cell6.innerHTML = '<button onclick="editRecord(this)">Edit</button> <button onclick="deleteRecord(this)">Delete</button>';
+  
   // Store the data in local storage
   let storedData = localStorage.getItem('storedData');
   let arr = storedData ? JSON.parse(storedData) : [];
   arr.push(data);
   localStorage.setItem('storedData', JSON.stringify(arr));
 }
+
 // Reset form fields
 function resetForm() {
   document.getElementById('productCode').value = '';
@@ -56,13 +58,13 @@ function editRecord(button) {
   let product = row.cells[1].innerHTML;
   let qty = row.cells[2].innerHTML;
   let price = row.cells[3].innerHTML;
-  let image = row.cells[4].innerHTML; // Add the image field
-  document.getElementById('productCode').value = productCode;
-  document.getElementById('product').value = product;
-  document.getElementById('qty').value = qty;
-  document.getElementById('price').value = price;
-  document.getElementById('image').value = image;
-  selectedRow = row;
+  let image = row.cells[4].innerHTML; 
+  document.getElementById('productCode').value = selectedRow.cells[0].innerHTML;
+  document.getElementById('product').value = selectedRow.cells[1].innerHTML;
+  document.getElementById('qty').value = selectedRow.cells[2].innerHTML;
+  document.getElementById('price').value = selectedRow.cells[3].innerHTML;
+  document.getElementById('image').value = selectedRow.cells[4].innerHTML;
+  // selectedRow = row;
 }
 // Update record
 function updateRecord(formData) {
