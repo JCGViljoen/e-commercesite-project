@@ -1,82 +1,81 @@
-let selectedRow = null;
-function onFormSubmit(event) {
-  event.preventDefault();
-  let formData = readFormData();
-  if (selectedRow === null) {
-    insertNewRecord(formData);
-  } else {
-    updateRecord(formData);
+const form = document.getElementById('product-form');
+const table = document.getElementById('product-table');
+// Event listener for form submission
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form submission
+  // Get form values
+  const name = document.getElementById('name').value;
+  const price = document.getElementById('price').value;
+  const description = document.getElementById('description').value;
+  // Create a new row in the table
+  const row = table.insertRow();
+  const nameCell = row.insertCell();
+  const priceCell = row.insertCell();
+  const descriptionCell = row.insertCell();
+  const actionCell = row.insertCell();
+  // Set cell values
+  nameCell.textContent = name;
+  priceCell.textContent = price;
+  descriptionCell.textContent = description;
+  actionCell.innerHTML = '<button onclick="deleteProduct(this)">Delete</button>';
+  // Save product to local storage
+  saveProduct(name, price, description);
+  // Reset the form
+  form.reset();
+});
+// Function to save product to local storage
+function saveProduct(name, price, description) {
+  let products = [];
+  // Check if products already exist in local storage
+  if (localStorage.getItem('products')) {
+    products = JSON.parse(localStorage.getItem('products'));
   }
-  resetForm();
+  // Add new product to the array
+  products.push({
+    name: name,
+    price: price,
+    description: description
+  });
+  // Store the updated products array in local storage
+  localStorage.setItem('products', JSON.stringify(products));
 }
-// Retrieve data
-function readFormData() {
-  let formData = {};
-  formData['productCode'] = document.getElementById('productCode').value;
-  formData['product'] = document.getElementById('product').value;
-  formData['qty'] = document.getElementById('qty').value;
-  formData['price'] = document.getElementById('price').value;
-  formData['image'] = document.getElementById('image').value; // Add the image field
-  return formData;
+// Function to load products from local storage
+function loadProducts() {
+  if (localStorage.getItem('products')) {
+    const products = JSON.parse(localStorage.getItem('products'));
+    for (let i = 0; i < products.length; i++) {
+      const row = table.insertRow();
+      const nameCell = row.insertCell();
+      const priceCell = row.insertCell();
+      const descriptionCell = row.insertCell();
+      const actionCell = row.insertCell();
+      nameCell.textContent = products[i].name;
+      priceCell.textContent = products[i].price;
+      descriptionCell.textContent = products[i].description;
+      actionCell.innerHTML = '<button onclick="deleteProduct(this)">Delete</button>';
+    }
+  }
 }
-// Insert data
-function insertNewRecord(data) {
-  let table = document.getElementById('storeList').getElementsByTagName('tbody')[0];
-  let newRow = table.insertRow(table.length);
-  let cell1 = newRow.insertCell(0);
-  cell1.innerHTML = data.productCode;
-  let cell2 = newRow.insertCell(1);
-  cell2.innerHTML = data.product;
-  let cell3 = newRow.insertCell(2);
-  cell3.innerHTML = data.qty;
-  let cell4 = newRow.insertCell(3);
-  cell4.innerHTML = data.price;
-  let cell5 = newRow.insertCell(4);
-  cell5.innerHTML = data.image; // Use the 'image' field value
-  let cell6 = newRow.insertCell(5);
-  cell6.innerHTML = '<button onclick="editRecord(this)">Edit</button> <button onclick="deleteRecord(this)">Delete</button>';
-  
-  // Store the data in local storage
-  let storedData = localStorage.getItem('storedData');
-  let arr = storedData ? JSON.parse(storedData) : [];
-  arr.push(data);
-  localStorage.setItem('storedData', JSON.stringify(arr));
+// Function to delete a product
+function deleteProduct(button) {
+  const row = button.parentNode.parentNode;
+  const productName = row.cells[0].textContent;
+  // Remove the row from the table
+  table.deleteRow(row.rowIndex);
+  // Remove the product from local storage
+  removeProductFromStorage(productName);
 }
-
-// Reset form fields
-function resetForm() {
-  document.getElementById('productCode').value = '';
-  document.getElementById('product').value = '';
-  document.getElementById('qty').value = '';
-  document.getElementById('price').value = '';
-  document.getElementById('image').value = '';
+// Function to remove product from local storage
+function removeProductFromStorage(productName) {
+  const products = JSON.parse(localStorage.getItem('products'));
+  for (let i = 0; i < products.length; i++) {
+    if (products[i].name === productName) {
+      products.splice(i, 1);
+      break;
+    }
+  }
+  // Update the products array in local storage
+  localStorage.setItem('products', JSON.stringify(products));
 }
-// Edit record
-function editRecord(button) {
-  let row = button.parentNode.parentNode;
-  let productCode = row.cells[0].innerHTML;
-  let product = row.cells[1].innerHTML;
-  let qty = row.cells[2].innerHTML;
-  let price = row.cells[3].innerHTML;
-  let image = row.cells[4].innerHTML; 
-  document.getElementById('productCode').value = selectedRow.cells[0].innerHTML;
-  document.getElementById('product').value = selectedRow.cells[1].innerHTML;
-  document.getElementById('qty').value = selectedRow.cells[2].innerHTML;
-  document.getElementById('price').value = selectedRow.cells[3].innerHTML;
-  document.getElementById('image').value = selectedRow.cells[4].innerHTML;
-  // selectedRow = row;
-}
-// Update record
-function updateRecord(formData) {
-  selectedRow.cells[0].innerHTML = formData.productCode;
-  selectedRow.cells[1].innerHTML = formData.product;
-  selectedRow.cells[2].innerHTML = formData.qty;
-  selectedRow.cells[3].innerHTML = formData.price;
-}
-// Delete record
-function deleteRecord(button) {
-  let row = button.parentNode.parentNode;
-  row.parentNode.removeChild(row);
-  resetForm();
-  selectedRow = null;
-}
+// Load products from local storage on page load
+loadProducts();
