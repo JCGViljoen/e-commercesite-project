@@ -4,8 +4,8 @@
     border-radius: 10px;
 }
 
-#navbar{
-
+span:hover{
+    color: #f9004d;
 }
 
 .text{
@@ -17,5 +17,9 @@
 
 #img{
     width: 100%;
+}
+
+span:hover{
+    color: #f9004d;
 }
 
