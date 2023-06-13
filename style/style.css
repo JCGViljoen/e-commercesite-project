@@ -3,6 +3,9 @@ html{
 
 }
 
+text{
+    color: #f9004d;
+}
 
 #featured-container{
     border-bottom: #000 solid;
