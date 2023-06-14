@@ -21,9 +21,7 @@ span:hover{
     color: #f9004d;
 }
 
-#navbar{
-   position:sticky
-}
+
 
 
 
@@ -38,7 +36,6 @@ span:hover{
     
 }
 .featured{
-    
     margin-top: 7rem;
     margin-bottom: 5rem;
 }
@@ -47,7 +44,7 @@ span:hover{
     display: -webkit-flex;
     align-items: center;
     justify-content: space-evenly;
-    
+    margin-bottom: 5rem;
     
 }
 
@@ -76,5 +73,13 @@ span:hover{
     
 }
 
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.socials{
+    visibility: hidden;
+}
 
 }
