@@ -20,4 +20,17 @@ span:hover{
     height:5rem;
     border-top: #000 solid;
     background-color: black;
+    
+}
+
+footer{
+    height: 100vh;
+    display: grid;
+    align-items: end;
+}
+
+section{
+    display: grid;
+    justify-content: center;
+    align-items: center;
 }
