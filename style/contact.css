@@ -6,6 +6,7 @@ body{
     background:url(https://i.postimg.cc/yxqLqCC2/HD-wallpaper-cort-guitars-kerem-instrument-guitar-rock-electric-guitar-music-note-solo.jpg) ;
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
 #logo{
     width: 5rem;
@@ -27,13 +28,24 @@ span:hover{
 
 #img{
     width: 100%;
+    border-radius: 30px;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    box-shadow: 7px 6px 6px #000;
 }
 
 p{
     font-family: Georgia, 'Times New Roman', Times, serif;
-   background-color: white;
+   background-color: beige;
    box-shadow: 7px 6px 6px #000;
+   border-radius: 10px;
+  
 
+}
+
+form{
+    background-color: beige;
+    font-weight: 700;
 }
 
 
