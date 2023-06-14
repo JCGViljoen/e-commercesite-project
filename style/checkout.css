@@ -1,0 +1,23 @@
+text{
+    color: #f9004d;
+}
+
+#logo{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 10px;
+    box-shadow: 3px 5px 7px  #000;
+}
+
+span:hover{
+    color: #f9004d;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height:5rem;
+    border-top: #000 solid;
+    background-color: black;
+}
