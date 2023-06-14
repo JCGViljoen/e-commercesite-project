@@ -9,11 +9,13 @@ form.addEventListener('submit', function(event) {
   const description = document.getElementById('description').value;
   // Create a new row in the table
   const row = table.insertRow();
+  
   const nameCell = row.insertCell();
   const priceCell = row.insertCell();
   const descriptionCell = row.insertCell();
   const actionCell = row.insertCell();
   // Set cell values
+  
   nameCell.textContent = name;
   priceCell.textContent = price;
   descriptionCell.textContent = description;
@@ -32,6 +34,7 @@ function saveProduct(name, price, description) {
   }
   // Add new product to the array
   products.push({
+   
     name: name,
     price: price,
     description: description
@@ -45,14 +48,16 @@ function loadProducts() {
     const products = JSON.parse(localStorage.getItem('products'));
     for (let i = 0; i < products.length; i++) {
       const row = table.insertRow();
+      
       const nameCell = row.insertCell();
       const priceCell = row.insertCell();
       const descriptionCell = row.insertCell();
       const actionCell = row.insertCell();
+      
       nameCell.textContent = products[i].name;
       priceCell.textContent = products[i].price;
       descriptionCell.textContent = products[i].description;
-      actionCell.innerHTML = '<button onclick="deleteProduct(this)">Delete</button>';
+      actionCell.innerHTML = '<button clas="btn btn-ouline-success" onclick="deleteProduct(this)">Delete</button>';
     }
   }
 }
