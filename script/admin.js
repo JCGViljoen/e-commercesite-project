@@ -56,7 +56,7 @@ function loadProducts() {
       const descriptionCell = row.insertCell();
       const actionCell = row.insertCell();
 
-      // <input type="text" class="image-input" value="${products[i].image}" disabled></input>
+      
       
       imageCell.innerHTML = `<img src="${products[i].image}"/>`; 
       nameCell.textContent = products[i].name;
