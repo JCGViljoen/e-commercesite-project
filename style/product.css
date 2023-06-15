@@ -49,3 +49,19 @@ h1 {
   tr:nth-child(even) {
     background-color: #f9f9f9;
   }
+
+  .footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height:5rem;
+    border-top: #000 solid;
+    background-color: black;
+    
+}
+
+footer{
+    height: 100vh;
+    display: grid;
+    align-items: end;
+}
