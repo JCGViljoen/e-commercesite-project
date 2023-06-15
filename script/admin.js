@@ -10,23 +10,24 @@ form.addEventListener('submit', function(event) {
   
   const row = table.insertRow();
   
+  const ImageCell = row.insertCell()
   const nameCell = row.insertCell();
   const priceCell = row.insertCell();
   const descriptionCell = row.insertCell();
   const actionCell = row.insertCell();
   
-  
+  ImageCell.innerHTML =`<input type= "text" id = "image" class = "image-input">`
   nameCell.textContent = name;
   priceCell.textContent = price;
   descriptionCell.textContent = description;
   actionCell.innerHTML = '<button onclick="deleteProduct(this)">Delete</button>';
   
-  saveProduct(name, price, description);
+  saveProduct(name, price, description, image);
   
   form.reset();
 });
 
-function saveProduct(name, price, description) {
+function saveProduct(name, price, description, image) {
   let products = [];
   
   if (localStorage.getItem('products')) {
@@ -49,15 +50,19 @@ function loadProducts() {
     for (let i = 0; i < products.length; i++) {
       const row = table.insertRow();
       
+      const imageCell = row.insertCell();
       const nameCell = row.insertCell();
       const priceCell = row.insertCell();
       const descriptionCell = row.insertCell();
       const actionCell = row.insertCell();
+
+      // <input type="text" class="image-input" value="${products[i].image}" disabled></input>
       
+      imageCell.innerHTML = `<img src="${products[i].image}"/>`; 
       nameCell.textContent = products[i].name;
       priceCell.textContent = products[i].price;
       descriptionCell.textContent = products[i].description;
-      actionCell.innerHTML = '<button clas="btn btn-ouline-success" onclick="deleteProduct(this)">Delete</button>';
+      actionCell.innerHTML = '<button class="btn btn-outline-success" onclick="deleteProduct(this)">Delete</button>'; 
     }
   }
 }
@@ -83,3 +88,24 @@ function removeProductFromStorage(productName) {
 }
 
 loadProducts();
+
+function editProduct(button) {
+  const row = button.parentNode.parentNode;
+  const nameCell = row.cells[1];
+  const priceCell = row.cells[2];
+  const descriptionCell = row.cells[3];
+  const imageCell = row.cells[0];
+  const name = nameCell.textContent;
+  const price = priceCell.textContent;
+  const description = descriptionCell.textContent;
+  const image = imageCell.querySelector('.image-input').value;
+  // Update the form inputs with the values for editing
+  document.getElementById('name').value = name;
+  document.getElementById('price').value = price;
+  document.getElementById('description').value = description;
+  document.getElementById('image').value = image;
+  // Remove the row from the table
+  table.deleteRow(row.rowIndex);
+  // Remove the product from storage
+  removeProductFromStorage(name);
+}
