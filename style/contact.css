@@ -34,7 +34,7 @@ span:hover{
     box-shadow: 7px 6px 6px #000;
 }
 
-p{
+.text-body{
     font-family: Georgia, 'Times New Roman', Times, serif;
    background-color: beige;
    box-shadow: 7px 6px 6px #000;
@@ -63,4 +63,7 @@ footer{
     align-items: end;
 }
 
-
+.button{
+    display: flex;
+    justify-content: center;
+}

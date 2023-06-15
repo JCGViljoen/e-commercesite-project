@@ -1,7 +1,10 @@
 text{
     color: #f9004d;
 }
-
+body{
+    background: rgb(89,82,106);
+    background: linear-gradient(90deg, rgba(89,82,106,1) 7%, rgba(148,187,233,1) 52%);
+}
 #logo{
     width: 6rem;
     height: 6rem;
@@ -33,4 +36,12 @@ section{
     display: grid;
     justify-content: center;
     align-items: center;
+}
+
+.card{
+    background-color: beige;
+}
+
+ul{
+    list-style: none;
 }

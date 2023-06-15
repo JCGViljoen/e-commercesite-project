@@ -4,7 +4,7 @@ const totalPriceElement = document.getElementById('total-price');
 // Function to calculate the total price
 function calculateTotal() {
   const products = JSON.parse(localStorage.getItem('products'));
-  let totalPrice = 0;
+  let totalPrice = R0;
 
   products.forEach((product) => {
     if (product.selected) {
@@ -14,7 +14,6 @@ function calculateTotal() {
 
   return totalPrice;
 }
-
 
 function updateSelectedProducts() {
   const products = JSON.parse(localStorage.getItem('products'));
@@ -32,15 +31,12 @@ function updateSelectedProducts() {
   totalPriceElement.textContent = `R${totalPrice}`;
 }
 
-
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   updateSelectedProducts();
 });
-
 
 const checkoutButton = document.getElementById('checkout-button');
 checkoutButton.addEventListener('click', () => {
   const totalPrice = calculateTotal();
   console.log('Total Price:', totalPrice);
-  
 });
